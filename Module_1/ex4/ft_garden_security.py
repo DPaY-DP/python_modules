@@ -7,26 +7,26 @@ class Plant:
                   "age can't be negative")
             return
         self.name = name
-        self.height = height
+        self.__height = height
         self.ageplant = age
         print(f"Plant created: {self.name.capitalize()}: "
-              f"{round(self.height, 2)}cm,"
+              f"{round(self.__height, 2)}cm,"
               f" {self.ageplant} days old")
 
     def show(self) -> str:
         return "Current state: " \
                f"{self.name.capitalize()}: " \
-               f"{round(self.height, 2)}cm, " \
+               f"{round(self.__height, 2)}cm, " \
                f"{self.ageplant} days old"
 
     def grow(self) -> None:
-        self.height += 0.8
+        self.__height += 0.8
 
     def age(self) -> None:
         self.ageplant += 1
 
     def get_height(self) -> float:
-        return self.height
+        return self.__height
 
     def get_age(self) -> int:
         return self.ageplant
@@ -37,7 +37,7 @@ class Plant:
                   "Error height or age can't be negative")
             print("Height update rejected")
         else:
-            self.height = new_height
+            self.__height = new_height
             print(f"Height updated: {new_height}")
 
     def set_age(self, new_age: int) -> None:
